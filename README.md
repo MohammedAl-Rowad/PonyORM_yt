@@ -16,3 +16,5 @@ $ virtualenv mypython
 $ source mypython/bin/activate
 $ pip install -r requirements.txt
 ```
+
+<img src="PonyORM.png" />
