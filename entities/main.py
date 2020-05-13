@@ -1,4 +1,3 @@
-from pony.orm import *
 from pony import orm
 from users import def_users_entity
 from posts import def_posts_entity
