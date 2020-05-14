@@ -3,7 +3,7 @@ from faker import Faker
 fake = Faker()
 
 @db_session()
-def fake_users(orm, Users, amount = 10):
+def fake_users(Users, Posts, amount = 10):
     for _ in range(amount):
         u = Users(
             first_name=fake.first_name(), 
@@ -11,7 +11,13 @@ def fake_users(orm, Users, amount = 10):
             age=fake.random_int(18, 99),
             email=fake.ascii_free_email(),
             )
+    creating_posts(Users, Posts)
 
+@db_session()
+def creating_posts(Users, Posts):
+    users = Users.select()
+    for user in users:
+        post = Posts(title=fake.name(), body=''.join(fake.paragraphs()), user=user)
 
 @db_session()
 def del_user(Users, id):

@@ -5,3 +5,4 @@ def def_posts_entity(db, orm, Users):
         title = orm.Required(str, 40)
         body = orm.Required(str)
         user = orm.Required(Users, column='user_id') # will create a column named user(int) by default
+    return Posts
