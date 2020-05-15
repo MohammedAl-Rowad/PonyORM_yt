@@ -24,7 +24,7 @@ def fake_categories_posts(Categories, Posts, PostsCategories, amount = 10):
 @db_session()
 def get_nested_data(Categories, Posts):
     print(
-        json.dumps({'data': p.to_dict() for p in Categories[1].posts_categories.post}),
+        json.dumps({'data': [p.to_dict() for p in Categories[1].posts_categories.post]}),
         json.dumps({'data2': [p.to_dict() for c in Categories.select() for p in c.posts_categories.post]}),
         # json.dumps({'data': p.to_dict() for p in Categories[1].posts_categories.post.user})
     )
