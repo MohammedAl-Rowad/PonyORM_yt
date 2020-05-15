@@ -6,7 +6,7 @@ fake = Faker()
 @db_session()
 def fake_users(Users, Posts, amount = 10):
     for _ in range(amount):
-        u = Users(
+        Users(
             first_name=fake.first_name(), 
             second_name=fake.last_name(),
             age=fake.random_int(18, 99),
@@ -18,12 +18,13 @@ def fake_users(Users, Posts, amount = 10):
 def creating_posts(Users, Posts):
     users = Users.select()
     for user in users:
-        post = Posts(title=fake.name(), body=''.join(fake.paragraphs()), user=user)
+        Posts(title=fake.name(), body=''.join(fake.paragraphs()), user=user)
 
 @db_session()
 def del_user(Users, id):
     u = Users.select(lambda user: user.id == id)
     u.delete()
+#     Users[id].delete()
 
 @db_session()
 def delete_users_bulk(Users):
