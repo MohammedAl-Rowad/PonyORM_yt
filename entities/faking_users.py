@@ -31,3 +31,11 @@ def delete_users_bulk(Users):
 @db_session()
 def update_user(Users, id, name):
     Users[id].first_name = name
+    
+    
+@db_session()
+def get_users_posts(Users, Posts):
+    print(
+        json.dumps({'data': [p.user.to_dict() for p in Posts.select()]})
+    )
+
