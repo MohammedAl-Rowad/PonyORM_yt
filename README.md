@@ -1,5 +1,7 @@
 # PonyORM_yt
 
+code for this playlist [here](https://www.youtube.com/playlist?list=PLM0LBHjz37LXPeEjSuumB4g4JFCsTwNgn)
+
 ## install
 
 - clone
